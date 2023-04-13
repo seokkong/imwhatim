@@ -8,6 +8,7 @@
   * {
     font-size: 16px;
     font-family: $regularFont;
+    color: white;
   }
 }
 
@@ -30,16 +31,26 @@
       width: 100%;
       height: 100vh;
       background-color: rgba($color: #000000, $alpha: 0.7);
-      div {
-        img {
-          min-width: 100px;
-          width: 10vw;
-          opacity: 0.5;
-        }
-        &.gnb {
-          background-color: white;
-          @include position-style(fixed, 0);
-        }
+      img {
+        min-width: 100px;
+        width: 10vw;
+        opacity: 0.5;
+      }
+      transition: all 0.5s;
+    }
+    .gnb {
+      @include position-style(fixed, $top: 0, $left: 0, $zIndex: 8);
+      width: 100%;
+      height: 100px;
+      background-color: black;
+      transition: all 0.5s;
+      opacity: 0;
+      &.active {
+        transition: all 0.5s;
+        opacity: 1;
+      }
+      img {
+        width: 60px;
       }
     }
     .swiper {
@@ -76,7 +87,37 @@
     }
   }
   .content {
-    height: 100vh;
+    @include flex-style(column, center, flex-start);
     width: 100%;
+    min-height: 100vh;
+    padding: 100px 240px;
+    h1 {
+      width: 100%;
+      font-family: $blackFont;
+      font-size: 7em;
+      text-align: left;
+      color: transparent;
+      -webkit-text-stroke: 1px #fff;
+    }
+    .profile-wrap {
+      justify-content: space-between;
+      margin-top: 20px;
+      img {
+        width: 45%;
+        box-shadow: 0px 0px 10px rgba($color: #888888, $alpha: 0.3);
+      }
+      .description {
+        align-items: flex-start;
+        width: 45%;
+        li {
+          font-family: $lightFont;
+          font-size: 2em;
+          line-height: 130%;
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
   }
 }

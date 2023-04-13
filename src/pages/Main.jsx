@@ -18,9 +18,10 @@ import img10 from 'images/IM10.jpg';
 import img11 from 'images/IM11.jpg';
 import img12 from 'images/IM12.jpg';
 import img13 from 'images/IM13.jpg';
+import profileImg from 'images/profileImg.jpg';
 
 const Main = () => {
-  const [moveLogo, setMoveLogo] = useState(false);
+  const [gnb, setGnb] = useState(false);
   const [load, setLoad] = useState(true);
   const [scrollY, setScrollY] = useState(0);
 
@@ -49,7 +50,8 @@ const Main = () => {
   };
 
   useEffect(() => {
-    if (scrollY > 200) setMoveLogo(true);
+    if (scrollY > 500) setGnb(true);
+    else setGnb(false);
   }, [scrollY]);
 
   useEffect(() => {
@@ -63,9 +65,10 @@ const Main = () => {
     <>
       <div className='main-wrap column'>
         <div className='main-content column'>
-          <div className={moveLogo ? 'gnb' : ''}>
-            <img src={logo} alt='로고' />
-          </div>
+          <img src={logo} alt='로고' />
+        </div>
+        <div className={`gnb row ${gnb ? 'active' : ''}`}>
+          <img src={logo} alt='로고' />
         </div>
         <Swiper
           loop={true}
@@ -86,7 +89,21 @@ const Main = () => {
               }, <></>)
             : ''}
         </Swiper>
-        <div className='content'></div>
+        <div className='content'>
+          <h1>Profile</h1>
+          <div className='profile-wrap row'>
+            <img src={profileImg} alt='프로필' />
+            <ul className='description'>
+              <li>임창균</li>
+              <li>Im Changkyun</li>
+              <li>1996.01.26</li>
+              <li>175cm / 63kg</li>
+              <li>Rh+ O</li>
+              <li>Rapper of MONSTA X</li>
+              <li>Sony Music Entertainment Korea Inc.</li>
+            </ul>
+          </div>
+        </div>
         <img
           src={scrollDownIcon}
           alt='스크롤 다운 아이콘'
