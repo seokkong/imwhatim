@@ -89,9 +89,14 @@ const Main = () => {
               }, <></>)
             : ''}
         </Swiper>
+        <img
+          src={scrollDownIcon}
+          alt='스크롤 다운 아이콘'
+          className='scroll-down-icon'
+        />
         <div className='content'>
-          <h1>Profile</h1>
-          <div className='profile-wrap row'>
+          <h1 className='profile-header'>Profile</h1>
+          <div className='wrapper profile-wrap row'>
             <img src={profileImg} alt='프로필' />
             <ul className='description'>
               <li>임창균</li>
@@ -103,12 +108,16 @@ const Main = () => {
               <li>Sony Music Entertainment Korea Inc.</li>
             </ul>
           </div>
+          <h1 className='discography-header'>Discography</h1>
+          <div className='wrapper discography-wrap'></div>
+          <h1 className='support-header'>Support</h1>
+          <div className='wrapper support-wrap'></div>
+          <h1 className='contact-header'>Contact</h1>
+          <div className='wrapper contact-wrap'></div>
         </div>
-        <img
-          src={scrollDownIcon}
-          alt='스크롤 다운 아이콘'
-          className='scroll-down-icon'
-        />
+        <div className='footer'>
+          개발자가 임창균을 사랑하는 방법
+        </div>
       </div>
       <div className={`load column ${load ? 'active' : ''}`}>
         <img src={logo} alt='로고' />
